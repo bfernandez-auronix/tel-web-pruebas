@@ -44,6 +44,11 @@
         }
 
         .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card {
             background-color: #fff;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
@@ -70,6 +75,14 @@
             font-size: 22px;
             color: #2d9c2d;
             margin: 20px 0;
+        }
+
+        .random-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
         }
 
         .buttons {
@@ -114,18 +127,23 @@
     </style>
 </head>
 <body>
-
 <div class="container">
-    <h1>Manzanas</h1>
-    <img src="apples.jpeg" alt="Manzanas" class="product-img">
-    <p class="description">Disfruta de nuestras manzanas frescas, perfectas para cualquier ocasión. ¡Un sabor delicioso
-        y natural!</p>
-    <p class="price">$10.00 USD</p>
 
-    <div class="buttons">
-        <button class="button add" onclick="add()">Agregar al carrito</button>
-        <button class="button buy" onclick="comprar()">Comprar ahora</button>
-        <button class="button buy" onclick="subscribe()">Suscribirme</button>
+    <div class="card">
+        <h1>Manzanas</h1>
+        <img src="apples.jpeg" alt="Manzanas" class="product-img">
+        <p class="description">Disfruta de nuestras manzanas frescas, perfectas para cualquier ocasión. ¡Un sabor delicioso
+            y natural!</p>
+        <p class="price">$10.00 USD</p>
+
+        <div class="buttons">
+            <button class="button add" onclick="add()">Agregar al carrito</button>
+            <button class="button buy" onclick="comprar()">Comprar ahora</button>
+        </div>
+    </div>
+    <div class="random-buttons">
+        <button class="button" onclick="subscribe()">Suscribirme</button>
+        <button class="button" onclick="lead()">Lead</button>
     </div>
 </div>
 
@@ -146,6 +164,13 @@
         fbq('track', 'Subscribe', {value: '68.00', currency: 'USD', predicted_ltv: '0.00'});
         console.log("¡Has hecho clic en el botón de suscribirme!");
         alert("¡Gracias por suscribirte!");
+    }
+
+    function lead() {
+        fbq('track', 'Lead');
+        console.log("¡Has hecho clic en el botón de lead!");
+        alert("¡Gracias por suscribirte!");
+
     }
 </script>
 
